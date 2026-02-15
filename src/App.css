@@ -1,0 +1,17 @@
+@layer base {
+  body {
+    @apply bg-[#F4F7FA] text-slate-900 antialiased;
+  }
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Smooth card hover */
+.hover-card {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/5;
+}
