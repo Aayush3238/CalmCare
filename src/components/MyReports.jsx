@@ -1,39 +1,56 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Users } from "lucide-react";
 
-const MyReports = () => {
-  const reports = [
-    { name: "Full Body Checkup", status: "Healthy" },
-    { name: "Thyroid Profile", status: "Attention" },
+const FamilyMembers = () => {
+  const members = [
+    { name: "Aayush", relation: "You" },
+    { name: "Aryan", relation: "Brother" },
+    { name: "Yash", relation: "Mother" },
   ];
 
   return (
     <motion.div
-      className="p-8 bg-[#F6F8FB] min-h-screen"
+      className="p-8 min-h-screen bg-gradient-to-br from-[#F8FAFC] to-[#EEF4FF]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <h2 className="text-2xl font-semibold text-slate-800 mb-6">
-        My Reports
-      </h2>
+      <div className="flex items-center gap-2 mb-6">
+        <Users className="text-[#2C5FAD]" />
+        <h2 className="text-2xl font-bold text-slate-800">
+          Family Members
+        </h2>
+      </div>
 
-      <div className="space-y-4">
-        {reports.map((r, i) => (
+      <div className="grid md:grid-cols-3 gap-6">
+        {members.map((m, i) => (
           <motion.div
             key={i}
-            whileHover={{ scale: 1.02 }}
-            className="bg-white p-5 rounded-2xl border border-slate-100 flex justify-between items-center"
+            whileHover={{ y: -6 }}
+            className="bg-white/70 backdrop-blur-xl p-6 rounded-2xl border border-white/30 shadow-lg cursor-pointer"
           >
-            <div>
-              <h3 className="font-semibold">{r.name}</h3>
-              <p className="text-xs text-slate-400">Feb 2026</p>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-[#2C5FAD]">
+                {m.name[0]}
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-800">{m.name}</h3>
+                <p className="text-xs text-slate-400">{m.relation}</p>
+              </div>
             </div>
-            <span className="text-sm text-slate-500">{r.status}</span>
           </motion.div>
         ))}
+
+        {/* ADD MEMBER */}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          className="flex flex-col items-center justify-center border-2 border-dashed rounded-2xl text-slate-400 cursor-pointer h-[120px] hover:border-[#2C5FAD] hover:text-[#2C5FAD] transition"
+        >
+          + Add Member
+        </motion.div>
       </div>
     </motion.div>
   );
 };
 
-export default MyReports;
+export default FamilyMembers;
