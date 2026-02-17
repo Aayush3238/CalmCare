@@ -1,23 +1,27 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
-import Navbar from './components/Navbar';
-import MyReports from './components/MyReports';
-import FamilyMembers from './components/FamilyMembers';
-import Profile from './components/Profile';
-import Home from './components/Home';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 
-const App = () => {
+import Navbar from "./components/Navbar";
+import FamilyMembers from "./components/FamilyMembers";
+import MyReports from "./components/MyReports";
+import Profile from "./components/Profile";
+import Home from "./components/Home";
+import Upload from "./components/Upload";
+
+function App() {
   return (
-    <div className="min-h-screen bg-amber-50 text-gray-800">
-      <Navbar/>
-      <Routes>
-        <Route path = "/" element= {<Home/>}></Route>
-        <Route path ="/myReports" element = {<MyReports/>}></Route>
-        <Route path = "/profile" element = {<Profile/>}></Route>
-        <Route path = "/familyAccess" element = {<FamilyMembers/>}></Route>
-      </Routes>
-    </div>
-  )
+      <div className="app-bg">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/myreports" element={<MyReports />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/familyaccess" element={<FamilyMembers />} />
+          <Route path="/upload" element={<Upload />} />
+        </Routes>
+      </div>
+  );
 }
 
-export default App
+export default App;
